@@ -1,5 +1,5 @@
 ************** WWS508c PS5 *************
-*  Spring 2018			               *
+*  Spring 2018			                      *
 *  Author: William Willoughby          *
 *  Email: ww14@princeton.edu           *
 ****************************************
@@ -64,13 +64,13 @@ conscription rates.*/
 
 *Run regresssions of conscripted on crimes w/controls and birthyear FE
 xtreg crimerate conscripted argentine indigenous naturalized, i(birthyr) fe robust
-outreg2 using s2reg.xls, ///
-label tex(fragment pretty) ctitle(crimerate) addtext(Birth Year FE, YES) replace
+ outreg2 using s2reg.xls, ///
+ label tex(fragment pretty) ctitle(crimerate) addtext(Birth Year FE, YES) replace
 
 foreach var of varlist property murder drug sexual threat arms whitecollar{
 xtreg `var' conscripted argentine indigenous naturalized, i(birthyr) fe robust
-outreg2 using s2reg.xls, ///
-label tex(fragment pretty) ctitle(`var') addtext(Birth Year FE, YES) append
+ outreg2 using s2reg.xls, ///
+ label tex(fragment pretty) ctitle(`var') addtext(Birth Year FE, YES) append
 }
 
 /* Exempted young men are likely correlated with omitted variables.
@@ -97,16 +97,16 @@ replace eligible=1 if (draftnumber>=320 & birthyr==1962)
 
 **Regress conscription on eligibility (first stage)
 reg conscripted eligible, r
-outreg2 using fsreg.xls, ///
-label tex(fragment pretty) ctitle(No Controls) replace
+ outreg2 using fsreg.xls, ///
+ label tex(fragment pretty) ctitle(No Controls) replace
 
 reg conscripted eligible argentine indigenous naturalized, r
-outreg2 using fsreg.xls, ///
-label tex(fragment pretty) ctitle(Controls)  append
+ outreg2 using fsreg.xls, ///
+ label tex(fragment pretty) ctitle(Controls)  append
 
 xtreg conscripted eligible argentine indigenous naturalized, i(birthyr) fe robust
-outreg2 using fsreg.xls, ///
-label tex(fragment pretty) ctitle(Controls) addtext(Birth Year FE, YES) append
+ outreg2 using fsreg.xls, ///
+ label tex(fragment pretty) ctitle(Controls) addtext(Birth Year FE, YES) append
 
 /*
 Shouldn't need to incude ethnic compostion because eligibility random by year.
@@ -129,19 +129,19 @@ Run 2SLS
 
 *Generate dummy for birthyr
 forvalues i=1958(1)1962 {
-gen b`i'= 0
-replace b`i'=1 if birthyr==`i'
+ gen b`i'= 0
+ replace b`i'=1 if birthyr==`i'
 }
 
 *Run 2SLS
 ivregress 2sls crimerate (conscripted = eligible) argentine indigenous ///
-naturalized b1962 b1961 b1960 b1959, r
-outreg2 using 2slsreg.xls,  replace
+ naturalized b1962 b1961 b1960 b1959, r
+ outreg2 using 2slsreg.xls,  replace
 
 foreach var of varlist property murder drug sexual threat arms whitecollar{
-ivregress 2sls `var' (conscripted = eligible) argentine indigenous ///
-naturalized b1962 b1961 b1960 b1959, r
-outreg2 using 2slsreg.xls, append
+ ivregress 2sls `var' (conscripted = eligible) argentine indigenous ///
+ naturalized b1962 b1961 b1960 b1959, r
+ outreg2 using 2slsreg.xls, append
 }
 
 
