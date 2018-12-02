@@ -1,0 +1,1014 @@
+------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:\ps5\argentinacrime.log
+  log type:  text
+ opened on:  30 Nov 2018, 12:15:53
+
+. 
+. **Open dataset
+. use "wws508c_crime_ps5.dta", clear
+
+. 
+. ********************************************************************************
+. **                                   Section 1                                **
+. ********************************************************************************
+. 
+. *Summarize variables
+. tab birthyr, missing
+
+    birthyr |      Freq.     Percent        Cum.
+------------+-----------------------------------
+       1958 |      1,000       20.00       20.00
+       1959 |      1,000       20.00       40.00
+       1960 |      1,000       20.00       60.00
+       1961 |      1,000       20.00       80.00
+       1962 |      1,000       20.00      100.00
+------------+-----------------------------------
+      Total |      5,000      100.00
+
+. 
+. sum  
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+     birthyr |      5,000        1960    1.414355       1958       1962
+ draftnumber |      5,000       500.5    288.7039          1       1000
+ conscripted |      5,000    .5031219    .3048805   .0044843   .8638498
+   crimerate |      5,000     .069266    .0177859   .0178141   .1490737
+        arms |      5,000    .0010047    .0023807          0   .0228779
+-------------+---------------------------------------------------------
+    property |      5,000    .0074641    .0072837          0   .0545566
+      sexual |      5,000    .0007174    .0020622          0   .0184197
+      murder |      5,000    .0008641    .0021345          0   .0184197
+      threat |      5,000    .0016815    .0031157          0   .0311747
+        drug |      5,000    .0012081    .0028086          0   .0311747
+-------------+---------------------------------------------------------
+ whitecollar |      5,000    .0033947    .0045673          0   .0368394
+   argentine |      5,000    .9985559    .0025697    .973913          1
+  indigenous |      5,000    .0008938    .0019932          0   .0144231
+ naturalized |      5,000    .0005358    .0016516          0    .026087
+
+. sum, det 
+
+                           birthyr
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%         1958           1958
+ 5%         1958           1958
+10%         1958           1958       Obs               5,000
+25%         1959           1958       Sum of Wgt.       5,000
+
+50%         1960                      Mean               1960
+                        Largest       Std. Dev.      1.414355
+75%         1961           1962
+90%         1962           1962       Variance         2.0004
+95%         1962           1962       Skewness              0
+99%         1962           1962       Kurtosis            1.7
+
+                         draftnumber
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%         10.5              1
+ 5%         50.5              1
+10%        100.5              1       Obs               5,000
+25%        250.5              1       Sum of Wgt.       5,000
+
+50%        500.5                      Mean              500.5
+                        Largest       Std. Dev.      288.7039
+75%        750.5           1000
+90%        900.5           1000       Variance       83349.92
+95%        950.5           1000       Skewness              0
+99%        990.5           1000       Kurtosis       1.799998
+
+                         conscripted
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     .0160645       .0044843
+ 5%     .0264902       .0045872
+10%     .0338983           .008       Obs               5,000
+25%     .0591718       .0082988       Sum of Wgt.       5,000
+
+50%     .6777853                      Mean           .5031219
+                        Largest       Std. Dev.      .3048805
+75%     .7224412       .8389831
+90%      .756148       .8396226       Variance       .0929521
+95%     .7721224       .8425197       Skewness      -.8026585
+99%      .802521       .8638498       Kurtosis       1.743078
+
+                          crimerate
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     .0318247       .0178141
+ 5%     .0411801       .0180695
+10%     .0460492       .0222676       Obs               5,000
+25%     .0578959       .0222676       Sum of Wgt.       5,000
+
+50%     .0684147                      Mean            .069266
+                        Largest       Std. Dev.      .0177859
+75%     .0813129       .1380594
+90%     .0920984       .1409379       Variance       .0003163
+95%     .1000205       .1425129       Skewness       .2847618
+99%     .1136596       .1490737       Kurtosis        3.12302
+
+                            arms
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0010047
+                        Largest       Std. Dev.      .0023807
+75%            0       .0138148
+90%     .0045464       .0184197       Variance       5.67e-06
+95%     .0046049       .0222676       Skewness       2.760876
+99%     .0092098       .0228779       Kurtosis       12.29538
+
+                          property
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%     .0045756                      Mean           .0074641
+                        Largest       Std. Dev.      .0072837
+75%     .0092098       .0454638
+90%     .0180695       .0457557       Variance       .0000531
+95%     .0225869       .0506541       Skewness       1.380433
+99%     .0316217       .0545566       Kurtosis       5.748518
+
+                           sexual
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0007174
+                        Largest       Std. Dev.      .0020622
+75%            0       .0138148
+90%     .0045174       .0178141       Variance       4.25e-06
+95%     .0045756       .0180695       Skewness       3.325608
+99%     .0091511       .0184197       Kurtosis       15.73147
+
+                           murder
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0008641
+                        Largest       Std. Dev.      .0021345
+75%            0       .0138148
+90%     .0045464       .0178141       Variance       4.56e-06
+95%     .0046049       .0178141       Skewness       2.764341
+99%     .0091511       .0184197       Kurtosis       11.87135
+
+                           threat
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0016815
+                        Largest       Std. Dev.      .0031157
+75%     .0044535       .0228779
+90%     .0046049       .0272783       Variance       9.71e-06
+95%     .0090348       .0272783       Skewness       2.358348
+99%     .0136392       .0311747       Kurtosis        10.9582
+
+                            drug
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0012081
+                        Largest       Std. Dev.      .0028086
+75%            0       .0230246
+90%     .0045756       .0230246       Variance       7.89e-06
+95%     .0089071       .0272783       Skewness        2.96691
+99%     .0134564       .0311747       Kurtosis       14.92226
+
+                         whitecollar
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0033947
+                        Largest       Std. Dev.      .0045673
+75%     .0045756       .0274534
+90%     .0091511       .0276295       Variance       .0000209
+95%     .0135522       .0276295       Skewness       1.647243
+99%     .0183023       .0368394       Kurtosis       6.321601
+
+                          argentine
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     .9903846        .973913
+ 5%     .9948454       .9822222
+10%     .9952607       .9855769       Obs               5,000
+25%     .9959267       .9861751       Sum of Wgt.       5,000
+
+50%            1                      Mean           .9985559
+                        Largest       Std. Dev.      .0025697
+75%            1              1
+90%            1              1       Variance       6.60e-06
+95%            1              1       Skewness      -1.873769
+99%            1              1       Kurtosis       7.374216
+
+                         indigenous
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0008938
+                        Largest       Std. Dev.      .0019932
+75%            0       .0131579
+90%     .0045045       .0133929       Variance       3.97e-06
+95%     .0047847       .0136986       Skewness       2.201756
+99%     .0088889       .0144231       Kurtosis       7.709181
+
+                         naturalized
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               5,000
+25%            0              0       Sum of Wgt.       5,000
+
+50%            0                      Mean           .0005358
+                        Largest       Std. Dev.      .0016516
+75%            0       .0123967
+90%     .0039683       .0131004       Variance       2.73e-06
+95%     .0045045       .0131579       Skewness       3.723195
+99%      .008316        .026087       Kurtosis       24.08306
+
+. 
+. sum conscripted
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+ conscripted |      5,000    .5031219    .3048805   .0044843   .8638498
+
+. sum crimerate
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+   crimerate |      5,000     .069266    .0177859   .0178141   .1490737
+
+. sum property
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+    property |      5,000    .0074641    .0072837          0   .0545566
+
+. sum murder
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+      murder |      5,000    .0008641    .0021345          0   .0184197
+
+. sum drug
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+        drug |      5,000    .0012081    .0028086          0   .0311747
+
+. sum sexual
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+      sexual |      5,000    .0007174    .0020622          0   .0184197
+
+. sum threat
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+      threat |      5,000    .0016815    .0031157          0   .0311747
+
+. sum arms
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+        arms |      5,000    .0010047    .0023807          0   .0228779
+
+. sum whitecollar
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+ whitecollar |      5,000    .0033947    .0045673          0   .0368394
+
+. sum argentine
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+   argentine |      5,000    .9985559    .0025697    .973913          1
+
+. sum indigenous
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+  indigenous |      5,000    .0008938    .0019932          0   .0144231
+
+. sum naturalized
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+ naturalized |      5,000    .0005358    .0016516          0    .026087
+
+. 
+. *Take a look at crime and conscription rates by birth year
+. sort birthyr
+
+. tab birthyr, sum(crimerate)
+
+            |        Summary of crimerate
+    birthyr |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+       1958 |   .06897711   .01768152       1,000
+       1959 |   .06797467   .01763591       1,000
+       1960 |   .06900502   .01735557       1,000
+       1961 |   .06979812   .01781428       1,000
+       1962 |   .07057508   .01835512       1,000
+------------+------------------------------------
+      Total |     .069266   .01778589       5,000
+
+. tab birthyr, sum(conscripted)
+
+            |       Summary of conscripted
+    birthyr |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+       1958 |   .57642333   .24149914       1,000
+       1959 |    .4617756   .29510674       1,000
+       1960 |   .46701174    .3103247       1,000
+       1961 |   .50943826   .33382006       1,000
+       1962 |    .5009606   .32178605       1,000
+------------+------------------------------------
+      Total |   .50312191   .30488054       5,000
+
+. 
+. 
+. /*Crime rates look close to an untrained eye.
+> People born in 1958 seem much more likely to get conscripted,
+> especially compared to 1959-60.*/
+. 
+. **Comparisons of means
+. mvtest means crimerate, by(birthyr) heterogeneous
+
+Test for equality of 5 group means, allowing for heterogeneity
+
+          Wald chi2(4) =     11.82
+           Prob > chi2 =    0.0187  (chi-squared approximation)
+           Prob > chi2 =    0.0190  (James' approximation)
+
+. mvtest means conscripted, by(birthyr) heterogeneous
+
+Test for equality of 5 group means, allowing for heterogeneity
+
+          Wald chi2(4) =    122.30
+           Prob > chi2 =    0.0000  (chi-squared approximation)
+           Prob > chi2 =    0.0000  (James' approximation)
+
+. 
+. /*Crime rates and conscription rates differ by birth year, especially conscription rates.*/
+. 
+. 
+. ********************************************************************************
+. **                                   Section 2                                **
+. ********************************************************************************
+. 
+. *Run regresssions of conscripted on crimes w/controls and birthyear FE
+. xtreg crimerate conscripted argentine indigenous naturalized, i(birthyr) fe robust
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0017                                         min =      1,000
+     between = 0.5220                                         avg =    1,000.0
+     overall = 0.0021                                         max =      1,000
+
+                                                F(4,4)            =   52012.87
+corr(u_i, Xb)  = 0.1007                         Prob > F          =     0.0000
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+   crimerate |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0022643   .0004061     5.58   0.005     .0011368    .0033918
+   argentine |    .589768    .730769     0.81   0.465    -1.439172    2.618708
+  indigenous |   .5537216   .7439826     0.74   0.498    -1.511905    2.619348
+ naturalized |   .7243331   .7605229     0.95   0.395    -1.387217    2.835883
+       _cons |  -.5216726   .7309594    -0.71   0.515    -2.551141    1.507796
+-------------+----------------------------------------------------------------
+     sigma_u |  .00088818
+     sigma_e |  .01776348
+         rho |  .00249381   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+
+. outreg2 using s2reg.xls, label tex(fragment pretty) ctitle(crimerate) addtext(Birth Year FE, YES) replace
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+. foreach var of varlist property murder drug sexual threat arms whitecollar{
+  2. xtreg `var' conscripted argentine indigenous naturalized, i(birthyr) fe robust
+  3. outreg2 using s2reg.xls, label tex(fragment pretty) ctitle(`var') addtext(Birth Year FE, YES) append
+  4. }
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0015                                         min =      1,000
+     between = 0.7395                                         avg =    1,000.0
+     overall = 0.0006                                         max =      1,000
+
+                                                F(4,4)            =      55.97
+corr(u_i, Xb)  = -0.1398                        Prob > F          =     0.0009
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+    property |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0008554   .0002499     3.42   0.027     .0001616    .0015492
+   argentine |   .0783612   .3310655     0.24   0.825    -.8408241    .9975465
+  indigenous |   .0887324   .3459529     0.26   0.810    -.8717868    1.049252
+ naturalized |   .0092419   .3446382     0.03   0.980     -.947627    .9661108
+       _cons |  -.0712986   .3311347    -0.22   0.840    -.9906758    .8480787
+-------------+----------------------------------------------------------------
+     sigma_u |  .00083762
+     sigma_e |   .0072493
+         rho |  .01317465   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0020                                         min =      1,000
+     between = 0.1531                                         avg =    1,000.0
+     overall = 0.0019                                         max =      1,000
+
+                                                F(4,4)            =      25.80
+corr(u_i, Xb)  = -0.0506                        Prob > F          =     0.0041
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+      murder |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |  -.0000771   .0000826    -0.93   0.404    -.0003066    .0001524
+   argentine |  -.0078428   .0385868    -0.20   0.849    -.1149769    .0992913
+  indigenous |   .0379225   .0497768     0.76   0.489      -.10028    .1761251
+ naturalized |  -.0174558   .0400142    -0.44   0.685    -.1285529    .0936413
+       _cons |   .0087099   .0385676     0.23   0.832     -.098371    .1157907
+-------------+----------------------------------------------------------------
+     sigma_u |  .00008638
+     sigma_e |   .0021328
+         rho |  .00163778   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0002                                         min =      1,000
+     between = 0.1291                                         avg =    1,000.0
+     overall = 0.0003                                         max =      1,000
+
+                                                F(4,4)            =       4.94
+corr(u_i, Xb)  = 0.0255                         Prob > F          =     0.0756
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+        drug |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |  -.0000775    .000095    -0.82   0.460    -.0003413    .0001863
+   argentine |   .1267691   .0846068     1.50   0.208    -.1081369    .3616752
+  indigenous |   .1324266   .0826819     1.60   0.184    -.0971352    .3619884
+ naturalized |   .1289276   .0975739     1.32   0.257    -.1419811    .3998363
+       _cons |  -.1255265   .0846094    -1.48   0.212    -.3604398    .1093868
+-------------+----------------------------------------------------------------
+     sigma_u |  .00021517
+     sigma_e |  .00280382
+         rho |  .00585485   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0007                                         min =      1,000
+     between = 0.6837                                         avg =    1,000.0
+     overall = 0.0010                                         max =      1,000
+
+                                                F(4,4)            =       1.73
+corr(u_i, Xb)  = 0.1314                         Prob > F          =     0.3041
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+      sexual |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0001458   .0000896     1.63   0.179     -.000103    .0003947
+   argentine |   .0907273    .073302     1.24   0.284    -.1127918    .2942464
+  indigenous |   .0964032   .0779377     1.24   0.284    -.1199864    .3127929
+ naturalized |   .1032284   .0783382     1.32   0.258    -.1142733    .3207301
+       _cons |  -.0900937   .0733078    -1.23   0.286    -.2936288    .1134413
+-------------+----------------------------------------------------------------
+     sigma_u |  .00007318
+     sigma_e |  .00206183
+         rho |  .00125802   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0006                                         min =      1,000
+     between = 0.0307                                         avg =    1,000.0
+     overall = 0.0006                                         max =      1,000
+
+                                                F(4,4)            =      19.98
+corr(u_i, Xb)  = -0.0098                        Prob > F          =     0.0066
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+      threat |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0002324    .000113     2.06   0.109    -.0000813    .0005461
+   argentine |  -.0699416   .1042708    -0.67   0.539    -.3594438    .2195605
+  indigenous |   -.081037   .1123367    -0.72   0.511    -.3929338    .2308598
+ naturalized |  -.0813559   .0993256    -0.82   0.459     -.357128    .1944161
+       _cons |   .0715212   .1043178     0.69   0.531    -.2181115    .3611539
+-------------+----------------------------------------------------------------
+     sigma_u |  .00004235
+     sigma_e |  .00311694
+         rho |  .00018459   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0004                                         min =      1,000
+     between = 0.1827                                         avg =    1,000.0
+     overall = 0.0004                                         max =      1,000
+
+                                                F(4,4)            =       3.11
+corr(u_i, Xb)  = -0.0776                        Prob > F          =     0.1487
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+        arms |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0001345   .0000686     1.96   0.121    -.0000559    .0003249
+   argentine |  -.0272275   .1691592    -0.16   0.880    -.4968887    .4424337
+  indigenous |  -.0353787   .1617478    -0.22   0.838    -.4844627    .4137053
+ naturalized |  -.0388162   .1670054    -0.23   0.828    -.5024976    .4248652
+       _cons |   .0281776   .1691599     0.17   0.876    -.4414856    .4978407
+-------------+----------------------------------------------------------------
+     sigma_u |     .00005
+     sigma_e |   .0023818
+         rho |  .00044041   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.0017                                         min =      1,000
+     between = 0.1857                                         avg =    1,000.0
+     overall = 0.0018                                         max =      1,000
+
+                                                F(4,4)            =       6.04
+corr(u_i, Xb)  = 0.0394                         Prob > F          =     0.0548
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+ whitecollar |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0006043   .0001903     3.18   0.034     .0000759    .0011327
+   argentine |   .1162803   .1231516     0.94   0.399    -.2256434    .4582041
+  indigenous |   .1159622   .1435051     0.81   0.464    -.2824719    .5143963
+ naturalized |   .1007344   .1560684     0.65   0.554    -.3325808    .5340496
+       _cons |  -.1131794   .1232347    -0.92   0.410    -.4553337     .228975
+-------------+----------------------------------------------------------------
+     sigma_u |  .00017762
+     sigma_e |  .00456402
+         rho |  .00151235   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+s2reg.tex
+s2reg.xls
+dir : seeout
+
+. 
+. /* Exempted young men are likely correlated with omitted variables.
+> For example, wealthier men may be work the system and claim medical excuses or that family members are dep
+> endent upon them.
+> Those going into religious service may differ in their likelihood later in life.
+> 
+> Because of timing of data, we are only looking at crimes committed later in life (ages 38-47),
+> which may be more likely to be white collar crime and less likely to be 'crimes of passion'
+> */
+. 
+. ********************************************************************************
+. **                                   Section 3                                **
+. ********************************************************************************
+. 
+. **Generate binary variable for eligibility
+. gen eligible=0
+
+. replace eligible=1 if (draftnumber>=175 & birthyr==1958)
+(826 real changes made)
+
+. replace eligible=1 if (draftnumber>=320 & birthyr==1959)
+(681 real changes made)
+
+. replace eligible=1 if (draftnumber>=341 & birthyr==1960)
+(660 real changes made)
+
+. replace eligible=1 if (draftnumber>=350 & birthyr==1961)
+(651 real changes made)
+
+. replace eligible=1 if (draftnumber>=320 & birthyr==1962)
+(681 real changes made)
+
+. 
+. **Regress conscription on eligibility (first stage)
+. reg conscripted eligible, r
+
+Linear regression                               Number of obs     =      5,000
+                                                F(1, 4998)        >   99999.00
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.9742
+                                                Root MSE          =     .04894
+
+------------------------------------------------------------------------------
+             |               Robust
+ conscripted |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    eligible |   .6564878   .0011134   589.63   0.000     .6543051    .6586705
+       _cons |   .0437117   .0005661    77.21   0.000     .0426019    .0448216
+------------------------------------------------------------------------------
+
+. outreg2 using fsreg.xls, label tex(fragment pretty) ctitle(No Controls) replace
+fsreg.tex
+fsreg.xls
+dir : seeout
+
+. reg conscripted eligible argentine indigenous naturalized, r
+
+Linear regression                               Number of obs     =      5,000
+                                                F(4, 4995)        =   87010.80
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.9743
+                                                Root MSE          =     .04885
+
+------------------------------------------------------------------------------
+             |               Robust
+ conscripted |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    eligible |   .6565872   .0011142   589.30   0.000     .6544029    .6587715
+   argentine |  -.7761998   2.425215    -0.32   0.749    -5.530686    3.978287
+  indigenous |   -1.70524   2.445747    -0.70   0.486    -6.499979    3.089499
+ naturalized |   .7712713   2.447888     0.32   0.753    -4.027663    5.570206
+       _cons |   .8198321   2.425166     0.34   0.735    -3.934558    5.574222
+------------------------------------------------------------------------------
+
+. outreg2 using fsreg.xls, label tex(fragment pretty) ctitle(Controls)  append
+fsreg.tex
+fsreg.xls
+dir : seeout
+
+. xtreg conscripted eligible argentine indigenous naturalized, i(birthyr) fe robust
+
+Fixed-effects (within) regression               Number of obs     =      5,000
+Group variable: birthyr                         Number of groups  =          5
+
+R-sq:                                           Obs per group:
+     within  = 0.9795                                         min =      1,000
+     between = 0.7191                                         avg =    1,000.0
+     overall = 0.9742                                         max =      1,000
+
+                                                F(4,4)            =  189575.78
+corr(u_i, Xb)  = -0.0456                        Prob > F          =     0.0000
+
+                                (Std. Err. adjusted for 5 clusters in birthyr)
+------------------------------------------------------------------------------
+             |               Robust
+ conscripted |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    eligible |   .6587391    .015343    42.93   0.000     .6161402     .701338
+   argentine |  -3.332731   1.891838    -1.76   0.153    -8.585316    1.919855
+  indigenous |  -3.561024   1.788374    -1.99   0.117    -8.526345    1.404297
+ naturalized |  -3.908224   1.699552    -2.30   0.083    -8.626937    .8104891
+       _cons |   3.375331   1.894076     1.78   0.149    -1.883468     8.63413
+-------------+----------------------------------------------------------------
+     sigma_u |  .02573077
+     sigma_e |  .04328268
+         rho |   .2611249   (fraction of variance due to u_i)
+------------------------------------------------------------------------------
+
+. outreg2 using fsreg.xls, label tex(fragment pretty) ctitle(Controls) addtext(Birth Year FE, YES) append
+fsreg.tex
+fsreg.xls
+dir : seeout
+
+. 
+. /*
+> Shouldn't need to incude ethnic compostion because eligibility random by year.
+> However, eligibility differs by birth year so we think should include birth year.
+> 
+> Coefficient doesn't change when including either.
+> 
+> Thinking ahead to 2SLS, instrument should be unrelated to any variables that affect crime rate if it is go
+> ing to be a valid instrument.
+> Promising that coefficent doesn't change; seems to confirm instrument exogeneity condition/exclusion restr
+> iction.
+> However, because eligibility differs by birth year, exclusion restriction may not hold if birth year affec
+> ts crime rates
+> 
+> For now, we are going to include birth year and not ethnic composition.
+> 
+> Instead of completing a first stage-reduced form IV estimate, proceed with 2SLS
+> Run 2SLS 
+> */
+. 
+. *Generate dummy for birthyr
+. forvalues i=1958(1)1962 {
+  2. gen b`i'= 0
+  3. replace b`i'=1 if birthyr==`i'
+  4. }
+(1,000 real changes made)
+(1,000 real changes made)
+(1,000 real changes made)
+(1,000 real changes made)
+(1,000 real changes made)
+
+. 
+. *Run 2SLS
+. ivregress 2sls crimerate (conscripted = eligible) argentine indigenous naturalized b1962 b1961 b1960 b1959
+> , r
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =      22.58
+                                                  Prob > chi2     =     0.0039
+                                                  R-squared       =     0.0041
+                                                  Root MSE        =     .01775
+
+------------------------------------------------------------------------------
+             |               Robust
+   crimerate |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0026714   .0008432     3.17   0.002     .0010186    .0043241
+   argentine |   .5895639   .9141592     0.64   0.519    -1.202155    2.381283
+  indigenous |    .553883   .9168973     0.60   0.546    -1.243203    2.350969
+ naturalized |    .724701   .9388666     0.77   0.440    -1.115444    2.564846
+       b1962 |    .001633   .0008251     1.98   0.048     .0000159    .0032501
+       b1961 |   .0009248   .0008021     1.15   0.249    -.0006473     .002497
+       b1960 |   .0003129   .0007918     0.40   0.693     -.001239    .0018649
+       b1959 |  -.0006863   .0007981    -0.86   0.390    -.0022505     .000878
+       _cons |  -.5221108   .9141222    -0.57   0.568    -2.313758    1.269536
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+
+. outreg2 using 2slsreg.xls,  replace
+2slsreg.xls
+dir : seeout
+
+. foreach var of varlist property murder drug sexual threat arms whitecollar{
+  2. ivregress 2sls `var' (conscripted = eligible) argentine indigenous naturalized b1962 b1961 b1960 b1959,
+>  r
+  3. outreg2 using 2slsreg.xls, append
+  4. }
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =      56.63
+                                                  Prob > chi2     =     0.0000
+                                                  R-squared       =     0.0110
+                                                  Root MSE        =     .00724
+
+------------------------------------------------------------------------------
+             |               Robust
+    property |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0008221   .0003374     2.44   0.015     .0001607    .0014835
+   argentine |   .0783779   .3499018     0.22   0.823     -.607417    .7641728
+  indigenous |   .0887192   .3546155     0.25   0.802    -.6063143    .7837528
+ naturalized |   .0092118   .3582286     0.03   0.979    -.6929034     .711327
+       b1962 |   .0021325   .0003289     6.48   0.000     .0014878    .0027772
+       b1961 |   .0016483   .0003163     5.21   0.000     .0010284    .0022681
+       b1960 |   .0011204   .0003276     3.42   0.001     .0004783    .0017625
+       b1959 |   .0006252   .0003119     2.00   0.045     .0000139    .0012364
+       _cons |  -.0724037   .3498958    -0.21   0.836    -.7581868    .6133793
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =      13.20
+                                                  Prob > chi2     =     0.1053
+                                                  R-squared       =     0.0032
+                                                  Root MSE        =     .00213
+
+------------------------------------------------------------------------------
+             |               Robust
+      murder |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |  -.0000722   .0000996    -0.73   0.468    -.0002676    .0001231
+   argentine |  -.0078453   .1020492    -0.08   0.939     -.207858    .1921675
+  indigenous |   .0379245   .1037656     0.37   0.715    -.1654524    .2413014
+ naturalized |  -.0174514   .1050072    -0.17   0.868    -.2232617    .1883588
+       b1962 |  -.0000456   .0001032    -0.44   0.659    -.0002479    .0001567
+       b1961 |   .0000135    .000101     0.13   0.894    -.0001846    .0002115
+       b1960 |  -.0001208   .0000977    -1.24   0.216    -.0003122    .0000706
+       b1959 |  -.0001912   .0000928    -2.06   0.039     -.000373   -9.35e-06
+       _cons |   .0087787   .1020467     0.09   0.931    -.1912291    .2087865
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =      25.42
+                                                  Prob > chi2     =     0.0013
+                                                  R-squared       =     0.0050
+                                                  Root MSE        =      .0028
+
+------------------------------------------------------------------------------
+             |               Robust
+        drug |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |  -.0000898   .0001355    -0.66   0.507    -.0003553    .0001757
+   argentine |   .1267753   .0818649     1.55   0.121    -.0336769    .2872275
+  indigenous |   .1324217   .0844337     1.57   0.117    -.0330654    .2979088
+ naturalized |   .1289165   .0876619     1.47   0.141    -.0428977    .3007308
+       b1962 |    .000428   .0001349     3.17   0.002     .0001635    .0006924
+       b1961 |   .0003403   .0001279     2.66   0.008     .0000896    .0005911
+       b1960 |   .0000194   .0001232     0.16   0.875     -.000222    .0002608
+       b1959 |  -.0000295   .0001192    -0.25   0.805    -.0002632    .0002042
+       _cons |  -.1256781   .0818592    -1.54   0.125    -.2861191     .034763
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =      10.00
+                                                  Prob > chi2     =     0.2649
+                                                  R-squared       =     0.0019
+                                                  Root MSE        =     .00206
+
+------------------------------------------------------------------------------
+             |               Robust
+      sexual |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0001342   .0000935     1.43   0.151    -.0000491    .0003175
+   argentine |   .0907331   .0652531     1.39   0.164    -.0371606    .2186269
+  indigenous |   .0963986   .0673348     1.43   0.152    -.0355752    .2283725
+ naturalized |   .1032179   .0695318     1.48   0.138    -.0330619    .2394977
+       b1962 |   .0001156   .0000967     1.20   0.232    -.0000738    .0003051
+       b1961 |   .0000567   .0000951     0.60   0.551    -.0001298    .0002432
+       b1960 |  -.0000144   .0000909    -0.16   0.874    -.0001925    .0001637
+       b1959 |  -.0000775   .0000901    -0.86   0.390    -.0002541    .0000991
+       _cons |  -.0901098    .065247    -1.38   0.167    -.2179915    .0377719
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =       3.95
+                                                  Prob > chi2     =     0.8614
+                                                  R-squared       =     0.0008
+                                                  Root MSE        =     .00311
+
+------------------------------------------------------------------------------
+             |               Robust
+      threat |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0002199   .0001416     1.55   0.120    -.0000576    .0004975
+   argentine |  -.0699354   .1969207    -0.36   0.722     -.455893    .3160222
+  indigenous |   -.081042   .1983095    -0.41   0.683    -.4697214    .3076374
+ naturalized |  -.0813672   .2005355    -0.41   0.685    -.4744097    .3116752
+       b1962 |  -.0000201    .000147    -0.14   0.891    -.0003082     .000268
+       b1961 |  -.0000923   .0001372    -0.67   0.501    -.0003611    .0001765
+       b1960 |   .0000156    .000142     0.11   0.913    -.0002628    .0002939
+       b1959 |  -3.97e-06   .0001407    -0.03   0.977    -.0002798    .0002718
+       _cons |   .0715414   .1969206     0.36   0.716    -.3144159    .4574986
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =       3.70
+                                                  Prob > chi2     =     0.8834
+                                                  R-squared       =     0.0007
+                                                  Root MSE        =     .00238
+
+------------------------------------------------------------------------------
+             |               Robust
+        arms |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0001337   .0001115     1.20   0.230    -.0000848    .0003523
+   argentine |  -.0272271   .1371483    -0.20   0.843    -.2960328    .2415786
+  indigenous |   -.035379   .1382315    -0.26   0.798    -.3063078    .2355498
+ naturalized |  -.0388169   .1355055    -0.29   0.775    -.3044029     .226769
+       b1962 |   .0000926   .0001091     0.85   0.396    -.0001213    .0003065
+       b1961 |     .00013   .0001068     1.22   0.224    -.0000794    .0003394
+       b1960 |   .0000442   .0001022     0.43   0.665    -.0001561    .0002444
+       b1959 |   .0000877     .00011     0.80   0.425     -.000128    .0003034
+       _cons |   .0281067   .1371406     0.20   0.838     -.240684    .2968973
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+Instrumental variables (2SLS) regression          Number of obs   =      5,000
+                                                  Wald chi2(8)    =      16.56
+                                                  Prob > chi2     =     0.0351
+                                                  R-squared       =     0.0030
+                                                  Root MSE        =     .00456
+
+------------------------------------------------------------------------------
+             |               Robust
+ whitecollar |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+ conscripted |   .0006378   .0002109     3.02   0.002     .0002244    .0010512
+   argentine |   .1162635   .1658383     0.70   0.483    -.2087736    .4413006
+  indigenous |   .1159755    .169074     0.69   0.493    -.2154034    .4473544
+ naturalized |   .1007648   .1715062     0.59   0.557    -.2353812    .4369107
+       b1962 |    -.00001   .0002109    -0.05   0.962    -.0004234    .0004034
+       b1961 |   .0002052   .0002087     0.98   0.325    -.0002038    .0006143
+       b1960 |   .0000421   .0002087     0.20   0.840    -.0003668    .0004511
+       b1959 |  -.0002862    .000208    -1.38   0.169    -.0006938    .0001215
+       _cons |  -.1131697   .1658308    -0.68   0.495    -.4381922    .2118528
+------------------------------------------------------------------------------
+Instrumented:  conscripted
+Instruments:   argentine indigenous naturalized b1962 b1961 b1960 b1959
+               eligible
+2slsreg.xls
+dir : seeout
+
+. 
+. 
+. cap log close 
