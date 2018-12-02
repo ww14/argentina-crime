@@ -27,19 +27,6 @@ tab birthyr, missing
 sum  
 sum, det 
 
-sum conscripted
-sum crimerate
-sum property
-sum murder
-sum drug
-sum sexual
-sum threat
-sum arms
-sum whitecollar
-sum argentine
-sum indigenous
-sum naturalized
-
 *Take a look at crime and conscription rates by birth year
 sort birthyr
 tab birthyr, sum(crimerate)
